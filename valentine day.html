@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Gowtham ❤️</title>
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Segoe UI', sans-serif;
+    background:linear-gradient(135deg,#ff5f8f,#ff9a9e);
+    overflow:hidden;
+}
+.card{
+    background:white;
+    padding:35px;
+    border-radius:25px;
+    width:330px;
+    text-align:center;
+    box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+h1{color:#ff2f5b;}
+p{font-size:17px;color:#444;min-height:70px;}
+button{
+    padding:14px 24px;
+    border:none;
+    border-radius:30px;
+    background:#ff2f5b;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+.rose{
+    position:absolute;
+    top:-50px;
+    font-size:28px;
+    animation:fall 6s linear infinite;
+}
+@keyframes fall{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(800px);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<div class="card" id="box">
+    <h1>Hi Gowtham ❤️</h1>
+    <p id="text">Touch the button… I have something from my heart 🌹</p>
+    <button onclick="next()">Touch Me 💕</button>
+</div>
+
+<script>
+const quotes = [
+    "You are my favorite person in every lifetime ❤️",
+    "With you, love feels safe and forever 💕",
+    "I don’t want a perfect life — I want YOU 🌹",
+    "My heart chose you, and it keeps choosing you 💍",
+    "Gowtham, will you walk with me forever? 💖",
+    "I want to grow old with you… as your wife 💍❤️"
+];
+
+let i = 0;
+
+function next(){
+    if(i < quotes.length){
+        document.getElementById("text").innerText = quotes[i];
+        dropRose();
+        i++;
+    } else {
+        document.getElementById("box").innerHTML = `
+            <h1>Forever & Always 💍</h1>
+            <p>
+                Gowtham,<br>
+                I choose you today,<br>
+                tomorrow,<br>
+                and for the rest of my life ❤️
+            </p>
+            <h2>🌹 Will you be mine forever? 🌹</h2>
+        `;
+        for(let r=0;r<20;r++) dropRose();
+    }
+}
+
+function dropRose(){
+    const rose = document.createElement("div");
+    rose.className="rose";
+    rose.innerHTML="🌹";
+    rose.style.left=Math.random()*100+"vw";
+    document.body.appendChild(rose);
+    setTimeout(()=>rose.remove(),6000);
+}
+</script>
+
+</body>
+</html>
